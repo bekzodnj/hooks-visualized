@@ -7,6 +7,9 @@ module.exports = {
         bigblue: '#1363DF',
         litblue: '#06283D',
       },
+      animation: {
+        pulse: 'pulse 0.2s ease-in',
+      },
     },
   },
   plugins: [require('@tailwindcss/forms')],
