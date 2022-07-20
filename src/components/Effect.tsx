@@ -56,7 +56,7 @@ export const Effect = () => {
         </section>
         <section className='overflow-x-scroll'>
           <CodeEditor>
-            <CodeComment>// // useEffect</CodeComment>
+            <CodeComment>// useEffect</CodeComment>
             <CodeComment>
               // e.g. data fetching, setting up a subscription, manually
               changing the DOM, and etc.

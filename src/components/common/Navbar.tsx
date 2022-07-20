@@ -13,7 +13,9 @@ function Navbar() {
         <Link to='/context'>
           <button className=''>useContext</button>
         </Link>
-        <button className=''>useRef</button>
+        <Link to='/ref'>
+          <button className=''>useRef</button>
+        </Link>
         <button className=''>useReducer</button>
         <button className=''>useMemo</button>
         <button className=''>useCallback</button>

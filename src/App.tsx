@@ -3,6 +3,7 @@ import Navbar from './components/common/Navbar';
 import { State } from './components/State';
 import { Effect } from './components/Effect';
 import { Context } from './components/Context';
+import { Ref } from './components/Ref';
 import { AboutPage } from './components/common/AboutPage';
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -18,6 +19,7 @@ function App() {
             <Route path='/state' element={<State />} />
             <Route path='/effect' element={<Effect />} />
             <Route path='/context' element={<Context />} />
+            <Route path='/ref' element={<Ref />} />
           </Route>
         </Routes>
       </BrowserRouter>
