@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 import { PrismAsyncLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
@@ -15,7 +15,8 @@ const Component = () => {
 };`;
 
 const useStateCodeString = `const [fruit, setFruit] = useState(null);`;
-const FruitComponentCodeString = `<p>Select your favorite fruit:</p>
+const FruitComponentCodeString = `// ...
+<p>Select your favorite fruit:</p>
   <div>
     {fruits.map((fruit) => (
       <button onClick={() => { setFruit(fruit) }}>
@@ -24,7 +25,8 @@ const FruitComponentCodeString = `<p>Select your favorite fruit:</p>
     ))}
   </div>
 
-<p> Great! <span>{fruit.name} {fruit.emoji}!</span></p>`;
+<p> Great! <span>{fruit.name} {fruit.emoji}!</span></p>
+`;
 
 const fruits = [
   {
@@ -85,13 +87,15 @@ export const State = () => {
               </button>
             ))}
           </div>
-          {!!fruit && (
+          {fruit ? (
             <p className={`text-2xl`}>
               Great!{' '}
               <span>
                 {fruit.name} {fruit.emoji}!
               </span>
             </p>
+          ) : (
+            <p className={`text-2xl`}>...</p>
           )}
         </section>
         <section className='overflow-x-scroll p-2'>
@@ -123,6 +127,7 @@ export const State = () => {
             >
               {stateObjectCodeString}
             </SyntaxHighlighter>
+
             <SyntaxHighlighter
               language='jsx'
               style={oneDark}
@@ -132,15 +137,6 @@ export const State = () => {
               {FruitComponentCodeString}
             </SyntaxHighlighter>
           </div>
-          {/* <h2 className='font-mono text-green-500 '>// useState:</h2>
-          <p className='font-mono text-green-500'>
-            // adds state variable in functional components (withot writing a
-            class)
-          </p>
-          <p className='font-mono'>const [fruit, setFruit] = useState(null);</p>
-          <p className='font-mono text-green-500'>
-            // fruit = {JSON.stringify(fruit)}
-          </p> */}
         </section>
       </div>
     </div>

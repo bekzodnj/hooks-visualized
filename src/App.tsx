@@ -5,6 +5,7 @@ import { Effect } from './components/Effect';
 import { Context } from './components/Context';
 import { Ref } from './components/Ref';
 import { Reducer } from './components/Reducer';
+import { Memo } from './components/Memo';
 import { AboutPage } from './components/common/AboutPage';
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -20,6 +21,7 @@ function App() {
             <Route path='/context' element={<Context />} />
             <Route path='/ref' element={<Ref />} />
             <Route path='/reducer' element={<Reducer />} />
+            <Route path='/Memo' element={<Memo />} />
           </Route>
         </Routes>
       </BrowserRouter>

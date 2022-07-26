@@ -101,7 +101,7 @@ export const Reducer = () => {
     <div className='bg-litblue text-white h-screen'>
       <div className='grid grid-cols-1 sm:grid-cols-2'>
         <section className='p-2'>
-          <h2 className='text-2xl m-2'>useReducer </h2>
+          <h2 className='text-2xl '>useReducer </h2>
 
           <div
             className={
