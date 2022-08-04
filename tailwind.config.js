@@ -4,8 +4,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        bigblue: '#1363DF',
-        litblue: '#06283D',
+        darknightblue: '#16213E',
+        bluerose: '#1A1A2E',
+        blueberry: '#3e4491',
+        lightazure: '#3e4491',
+        mango: '#f7a400',
+        guidepink: '#E94560',
       },
       animation: {
         pulse: 'pulse 0.2s ease-in',

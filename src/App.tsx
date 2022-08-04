@@ -6,12 +6,14 @@ import { Context } from './components/Context';
 import { Ref } from './components/Ref';
 import { Reducer } from './components/Reducer';
 import { Memo } from './components/Memo';
+import { Callback } from './components/Callback';
 import { AboutPage } from './components/common/AboutPage';
+import './App.css';
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 function App() {
   return (
-    <div className=''>
+    <div className='h-full'>
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Navbar />}>
@@ -21,7 +23,8 @@ function App() {
             <Route path='/context' element={<Context />} />
             <Route path='/ref' element={<Ref />} />
             <Route path='/reducer' element={<Reducer />} />
-            <Route path='/Memo' element={<Memo />} />
+            <Route path='/memo' element={<Memo />} />
+            <Route path='/callback' element={<Callback />} />
           </Route>
         </Routes>
       </BrowserRouter>

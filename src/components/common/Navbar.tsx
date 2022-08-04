@@ -5,7 +5,7 @@ let activeClassName = 'underline underline-offset-4';
 function Navbar() {
   return (
     <>
-      <nav className='bg-bigblue text-white py-4 px-5 bold flex overflow-x-scroll space-x-5 text-xl'>
+      <nav className='bg-bluerose text-white py-4 px-5 bold flex overflow-x-scroll space-x-5 text-xl'>
         <NavLink
           to='/state'
           className={({ isActive }) => (isActive ? activeClassName : '')}
@@ -42,7 +42,12 @@ function Navbar() {
         >
           useMemo
         </NavLink>
-        <button className=''>useCallback</button>
+        <NavLink
+          to='/callback'
+          className={({ isActive }) => (isActive ? activeClassName : '')}
+        >
+          useCallback
+        </NavLink>
         <button className=''>useLayoutEffect</button>
       </nav>
       <Outlet />

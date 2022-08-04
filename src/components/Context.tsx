@@ -18,7 +18,7 @@ const _fruits = [fruits[4], fruits[1], fruits[3]];
 
 export const Context = () => {
   return (
-    <div className='bg-litblue text-white h-screen'>
+    <div className='bg-darknightblue text-white h-screen'>
       <div className='grid grid-cols-1 sm:grid-cols-2'>
         <section className='p-2'>
           {/* Interactive */}
@@ -74,7 +74,7 @@ const LevelThree = () => {
         {_fruits.map((fruit) => {
           if (fruitName && setFruitName) {
             return (
-              <label>
+              <label key={fruit.name}>
                 <input
                   type='radio'
                   name='fruitName'

@@ -27,7 +27,7 @@ export const Effect = () => {
   });
 
   return (
-    <div className=' bg-litblue text-white'>
+    <div className=' bg-darknightblue text-white'>
       <div className='grid grid-cols-1 sm:grid-cols-2 '>
         <section className='border '>
           <p className='text-lg'>Select your favorite fruit:</p>

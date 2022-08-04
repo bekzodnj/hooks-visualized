@@ -98,7 +98,7 @@ export const Reducer = () => {
   let emojis = AWARD_EMOJIS.sort(() => 0.5 - Math.random()).slice(0, 3);
 
   return (
-    <div className='bg-litblue text-white h-screen'>
+    <div className='bg-darknightblue text-white h-screen'>
       <div className='grid grid-cols-1 sm:grid-cols-2'>
         <section className='p-2'>
           <h2 className='text-2xl '>useReducer </h2>

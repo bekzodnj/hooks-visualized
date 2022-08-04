@@ -5,7 +5,7 @@ import { fruits } from './common/StaticData';
 export const Ref = () => {
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
   return (
-    <div className='bg-litblue text-white h-screen'>
+    <div className='bg-darknightblue text-white h-screen'>
       <div className='grid grid-cols-1 sm:grid-cols-2'>
         <section className='p-2'>
           <h2 className='text-2xl'>useRef</h2>
