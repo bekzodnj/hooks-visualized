@@ -110,7 +110,7 @@ export const Effect = () => {
               subscription, manually changing the DOM, and etc.
             </p>
           </div>
-          <div className='border-x-0 border-y-2 border-sky-800 p-3'>
+          <div className='border-x-0 border-y border-sky-800 p-3 my-3'>
             <p className=''>
               <span
                 className='bg-sky-600 inline-block rounded px-1'
