@@ -8,12 +8,11 @@ import { Reducer } from './components/Reducer';
 import { Memo } from './components/Memo';
 import { Callback } from './components/Callback';
 import { AboutPage } from './components/common/AboutPage';
-import './App.css';
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 function App() {
   return (
-    <div className='h-full'>
+    <div className='min-h-screen bg-darknightblue text-white'>
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Navbar />}>

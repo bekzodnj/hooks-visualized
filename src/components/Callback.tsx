@@ -4,7 +4,7 @@ export const Callback = ({}) => {
   const [checked, setChecked] = useState(false);
 
   return (
-    <div className='h-screen bg-darknightblue text-white'>
+    <div className=''>
       <div className='grid grid-cols-1 sm:grid-cols-2'>
         <section className='border border-sky-800 p-2'>
           <h2 className='text-2xl'>useMemo</h2>

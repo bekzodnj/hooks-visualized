@@ -58,88 +58,86 @@ function Card() {
 
 export const Context = () => {
   return (
-    <div className='h-full bg-darknightblue text-white'>
-      <div className='grid grid-cols-1 sm:grid-cols-2'>
-        <section className='border border-sky-900 p-2'>
-          {/* Interactive */}
-          <h2 className='font-mono text-xl mb-2'>useContext example</h2>
-          <LevelOne />
-        </section>
+    <div className='grid grid-cols-1 sm:grid-cols-2'>
+      <section className='border border-sky-900 p-2'>
+        {/* Interactive */}
+        <h2 className='font-mono text-xl mb-2'>useContext example</h2>
+        <LevelOne />
+      </section>
 
-        {/* Tutorial */}
-        <section className='p-2'>
-          {/* header-intro */}
-          <h2 className='font-mono text-xl'>useContext</h2>
-          <div className='mb-4'>
-            <p>
-              The React context provides an easier way to share the data across
-              nested components, e.g. global state, user settings theme etc.
-            </p>
-          </div>
+      {/* Tutorial */}
+      <section className='p-2'>
+        {/* header-intro */}
+        <h2 className='font-mono text-xl'>useContext</h2>
+        <div className='mb-4'>
+          <p>
+            The React context provides an easier way to share the data across
+            nested components, e.g. global state, user settings theme etc.
+          </p>
+        </div>
 
-          {/* info-block */}
-          <div className='border-x-0 border-y border-sky-800 p-3 my-3'>
-            <p className=''>
-              <span
-                className='bg-sky-600 inline-block rounded px-1'
-                role='img'
-                aria-label='rocket'
-              >
-                🚀
-              </span>{' '}
-              Usage of context:
-            </p>
-
-            <ul className='list-inside list-decimal'>
-              <li>Creating the context</li>
-              <li>Providing the context (in the parent component)</li>
-              <li>Consuming the context (inside the inner componenet)</li>
-            </ul>
-          </div>
-
-          {/* code-block */}
-          <div className='mb-4'>
-            <p>1. Creating the context</p>
-            <SyntaxHighlighter
-              language='jsx'
-              style={oneDark}
-              wrapLines={true}
-              wrapLongLines={true}
+        {/* info-block */}
+        <div className='border-x-0 border-y border-sky-800 p-3 my-3'>
+          <p className=''>
+            <span
+              className='bg-sky-600 inline-block rounded px-1'
+              role='img'
+              aria-label='rocket'
             >
-              {creatingContextCodeString}
-            </SyntaxHighlighter>
-          </div>
+              🚀
+            </span>{' '}
+            Usage of context:
+          </p>
 
-          {/* code-block */}
-          <div className='mb-4'>
-            <p>
-              2. Providing the context - share the needed data as a value prop
-              using Context's static Provider component
-            </p>
-            <SyntaxHighlighter
-              language='jsx'
-              style={oneDark}
-              wrapLines={true}
-              wrapLongLines={true}
-            >
-              {usingContextCodeString}
-            </SyntaxHighlighter>
-          </div>
+          <ul className='list-inside list-decimal'>
+            <li>Creating the context</li>
+            <li>Providing the context (in the parent component)</li>
+            <li>Consuming the context (inside the inner componenet)</li>
+          </ul>
+        </div>
 
-          {/* code-block */}
-          <div className='mb-4'>
-            <p>3. Consuming the context - get the data from the useContext()</p>
-            <SyntaxHighlighter
-              language='jsx'
-              style={oneDark}
-              wrapLines={true}
-              wrapLongLines={true}
-            >
-              {consumingContextCodeString}
-            </SyntaxHighlighter>
-          </div>
-        </section>
-      </div>
+        {/* code-block */}
+        <div className='mb-4'>
+          <p>1. Creating the context</p>
+          <SyntaxHighlighter
+            language='jsx'
+            style={oneDark}
+            wrapLines={true}
+            wrapLongLines={true}
+          >
+            {creatingContextCodeString}
+          </SyntaxHighlighter>
+        </div>
+
+        {/* code-block */}
+        <div className='mb-4'>
+          <p>
+            2. Providing the context - share the needed data as a value prop
+            using Context's static Provider component
+          </p>
+          <SyntaxHighlighter
+            language='jsx'
+            style={oneDark}
+            wrapLines={true}
+            wrapLongLines={true}
+          >
+            {usingContextCodeString}
+          </SyntaxHighlighter>
+        </div>
+
+        {/* code-block */}
+        <div className='mb-4'>
+          <p>3. Consuming the context - get the data from the useContext()</p>
+          <SyntaxHighlighter
+            language='jsx'
+            style={oneDark}
+            wrapLines={true}
+            wrapLongLines={true}
+          >
+            {consumingContextCodeString}
+          </SyntaxHighlighter>
+        </div>
+      </section>
     </div>
   );
 };
