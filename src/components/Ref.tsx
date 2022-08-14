@@ -1,14 +1,25 @@
-import { useState, useRef, MutableRefObject } from 'react';
-import { CodeEditor, CodeComment } from './common/CodeEditor';
-import { fruits } from './common/StaticData';
+import { useState, useRef } from 'react';
+import { PrismAsyncLight as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+
+const useStateCodeString = `const myRef = useRef(initialValue);
+
+// refs are updated either inside a useEffect() or inside handlers
+const handler = () => {
+  const currentValue = myRef.current; // get reference value:
+  //...
+  myRef.current = newValue; // set a new reference value
+};`;
 
 export const Ref = () => {
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
+
   return (
     <div className='bg-darknightblue text-white h-screen'>
       <div className='grid grid-cols-1 sm:grid-cols-2'>
-        <section className='p-2'>
-          <h2 className='text-2xl'>useRef</h2>
+        {/* Interactive */}
+        <section className='border border-sky-900 p-2'>
+          <h2 className='font-mono text-xl'>useRef</h2>
           <div>
             <button
               type='button'
@@ -42,7 +53,25 @@ export const Ref = () => {
         </section>
 
         {/* Tutorial */}
-        <section>Ref</section>
+        <section>
+          <h2 className='font-mono text-xl'>useRef</h2>
+          <div className='mb-4'>
+            <p>
+              useRef returns a mutable ref object whose .current property is
+              initialized to the passed argument (initialValue). It is used for
+              persistent mutable values and DOM elements.
+            </p>
+
+            <SyntaxHighlighter
+              language='jsx'
+              style={oneDark}
+              wrapLines={true}
+              wrapLongLines={true}
+            >
+              {useStateCodeString}
+            </SyntaxHighlighter>
+          </div>
+        </section>
       </div>
     </div>
   );

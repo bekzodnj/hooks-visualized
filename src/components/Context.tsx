@@ -1,4 +1,6 @@
 import { useState, useEffect, createContext, useContext } from 'react';
+import { PrismAsyncLight as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { CodeEditor, CodeComment } from './common/CodeEditor';
 import { fruits } from './common/StaticData';
 
@@ -13,8 +15,6 @@ const LanguageContext = createContext<ILanguageContext>({
     return fruit;
   },
 });
-
-const _fruits = [fruits[4], fruits[1], fruits[3]];
 
 const languagesArr = [
   {
@@ -40,6 +40,22 @@ const languagesArr = [
   },
 ];
 
+const creatingContextCodeString = `const Context = createContext('Default Value');`;
+const usingContextCodeString = `function App() {
+  const selectedLanguage = 'english';
+  return (
+    <Context.Provider value={selectedLanguage}>
+      <Card />
+    </Context.Provider>
+  );
+}
+`;
+const consumingContextCodeString = `import { useContext } from 'react';
+function Card() {
+  const value = useContext(Context); // value = "english"
+  return <h2>{value}</h2>;
+}`;
+
 export const Context = () => {
   return (
     <div className='h-full bg-darknightblue text-white'>
@@ -51,7 +67,78 @@ export const Context = () => {
         </section>
 
         {/* Tutorial */}
-        <section>hi</section>
+        <section className='p-2'>
+          {/* header-intro */}
+          <h2 className='font-mono text-xl'>useContext</h2>
+          <div className='mb-4'>
+            <p>
+              The React context provides an easier way to share the data across
+              nested components, e.g. global state, user settings theme etc.
+            </p>
+          </div>
+
+          {/* info-block */}
+          <div className='border-x-0 border-y border-sky-800 p-3 my-3'>
+            <p className=''>
+              <span
+                className='bg-sky-600 inline-block rounded px-1'
+                role='img'
+                aria-label='rocket'
+              >
+                🚀
+              </span>{' '}
+              Usage of context:
+            </p>
+
+            <ul className='list-inside list-decimal'>
+              <li>Creating the context</li>
+              <li>Providing the context (in the parent component)</li>
+              <li>Consuming the context (inside the inner componenet)</li>
+            </ul>
+          </div>
+
+          {/* code-block */}
+          <div className='mb-4'>
+            <p>1. Creating the context</p>
+            <SyntaxHighlighter
+              language='jsx'
+              style={oneDark}
+              wrapLines={true}
+              wrapLongLines={true}
+            >
+              {creatingContextCodeString}
+            </SyntaxHighlighter>
+          </div>
+
+          {/* code-block */}
+          <div className='mb-4'>
+            <p>
+              2. Providing the context - share the needed data as a value prop
+              using Context's static Provider component
+            </p>
+            <SyntaxHighlighter
+              language='jsx'
+              style={oneDark}
+              wrapLines={true}
+              wrapLongLines={true}
+            >
+              {usingContextCodeString}
+            </SyntaxHighlighter>
+          </div>
+
+          {/* code-block */}
+          <div className='mb-4'>
+            <p>3. Consuming the context - get the data from the useContext()</p>
+            <SyntaxHighlighter
+              language='jsx'
+              style={oneDark}
+              wrapLines={true}
+              wrapLongLines={true}
+            >
+              {consumingContextCodeString}
+            </SyntaxHighlighter>
+          </div>
+        </section>
       </div>
     </div>
   );
