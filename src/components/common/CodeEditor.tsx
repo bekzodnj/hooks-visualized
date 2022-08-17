@@ -1,6 +1,8 @@
-export const CodeEditor = ({ children }) => {
+export const CodeEditor = ({ children, className }) => {
   return (
-    <div className='bg-stone-900 p-1 font-mono whitespace-pre-wrap'>
+    <div
+      className={`bg-stone-900 p-1 font-mono whitespace-pre-wrap` + className}
+    >
       {children}
     </div>
   );

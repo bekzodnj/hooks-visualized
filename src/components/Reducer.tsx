@@ -4,16 +4,30 @@ import { CodeEditor, CodeComment } from './common/CodeEditor';
 import { PrismAsyncLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
-const codeString = `import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism';
-const Component = () => {
-  const codeString = '(num) => num + 1';
+const codeString = `const initialState = { count: 50 };
+
+function reducer(state, action) {
+  switch (action.type) {
+    case 'INCREMENT_COIN':
+      return { count: state.count + 10 };
+    case 'DECREMENT_COIN':
+      return { count: state.count - 10 };
+    default:
+      return state;
+  }
+}
+
+function App() {
+  const [state, dispatch] = useReducer(reducer, initialState);
   return (
-    <SyntaxHighlighter language="javascript" style={dark}>
-      {codeString}
-    </SyntaxHighlighter>
+    <>
+      <p> {state.count} / 100 🪙</p>
+      <button onClick={() => dispatch({ type: 'DECREMENT_COIN' })}>-</button>
+      <button onClick={() => dispatch({ type: 'INCREMENT_COIN' })}>+</button>
+    </>
   );
-};`;
+}
+`;
 
 const AWARD_EMOJIS = ['🚀', '🎉', '✨', '✨', '💎', '💯', '🪐'];
 
@@ -97,24 +111,31 @@ export const Reducer = () => {
 
   let emojis = AWARD_EMOJIS.sort(() => 0.5 - Math.random()).slice(0, 3);
 
+  const reducerObjCodeString = `{
+ gemCount: ${gemCount},
+ coinCount: ${coinCount},
+ starCount: ${starCount},
+}`;
+
   return (
     <div className='grid grid-cols-1 sm:grid-cols-2'>
       <section className='p-2'>
-        <h2 className='text-2xl '>useReducer </h2>
+        <h2 className='font-mono text-xl'>useReducer</h2>
 
         <div
           className={
-            'mb-1 border-2 flex justify-between items-center ' +
+            'mb-1 border-2 flex items-center ' +
             (isEachItemEqualHundred && 'border-2 border-sky-400')
           }
         >
-          <div className={'p-2  '}>
+          {/* COIN INDICATORS */}
+          <div className={'p-2 basis-1/2'}>
             <p
               className={
                 'text-2xl ' + (gemCount === 100 && 'text-sky-400 font-semibold')
               }
             >
-              {gemCount} / 100
+              <span className='inline-block w-8'>{gemCount}</span> / 100
               <span
                 className='text-4xl inline-block p-2'
                 role='img'
@@ -129,7 +150,7 @@ export const Reducer = () => {
                 (coinCount === 100 && 'text-orange-400 font-semibold')
               }
             >
-              {coinCount} / 100
+              <span className='inline-block w-8'>{coinCount}</span> / 100
               <span
                 className='text-4xl inline-block p-2'
                 role='img'
@@ -145,7 +166,7 @@ export const Reducer = () => {
                 (starCount === 100 && 'text-yellow-400 font-semibold')
               }
             >
-              {starCount} / 100
+              <span className='inline-block w-8'>{starCount}</span> / 100
               <span
                 className='text-4xl inline-block p-2'
                 role='img'
@@ -155,12 +176,18 @@ export const Reducer = () => {
               </span>
             </p>
           </div>
-          {isEachItemEqualHundred && (
-            <p className='text-3xl'>{emojis.join(' ')}</p>
-          )}
-
-          <div></div>
+          <div className='self-stretch bg-stone-900 grow'>
+            <CodeEditor className='self-stretch ml-2'>
+              <CodeComment>// state:</CodeComment>
+              <p className='whitespace-pre'>{reducerObjCodeString}</p>
+              {isEachItemEqualHundred && (
+                <CodeComment>// {emojis.join(' ')}</CodeComment>
+              )}
+            </CodeEditor>
+          </div>
         </div>
+
+        {/* BUTTONS GROUP */}
         <div>
           <div className='flex space-x-1 mb-1'>
             <button
@@ -259,7 +286,14 @@ export const Reducer = () => {
 
       {/* Tutorial */}
       <section className='p-2'>
-        Ref
+        {/* header-intro */}
+        <h2 className='font-mono text-xl'>useReducer</h2>
+        <div className='mb-4'>
+          <p>
+            An alternative to useState hook provides a way to separate complex
+            state management from the component.
+          </p>
+        </div>
         <SyntaxHighlighter language='jsx' style={oneDark}>
           {codeString}
         </SyntaxHighlighter>

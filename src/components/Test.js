@@ -1,17 +1,23 @@
-export const Ref = () => {
-  const textAreaRef = useRef(null);
+const initialState = { count: 50 };
 
+function reducer(state, action) {
+  switch (action.type) {
+    case 'INCREMENT_COIN':
+      return { count: state.count + 10 };
+    case 'DECREMENT_COIN':
+      return { count: state.count - 10 };
+    default:
+      return state;
+  }
+}
+
+function App() {
+  const [state, dispatch] = useReducer(reducer, initialState);
   return (
     <>
-      <button onClick={() => textAreaRef.current?.focus()}>
-        Focus on the text area
-      </button>
-
-      <button onClick={() => textAreaRef.current?.blur()}>
-        Unfocus the text area
-      </button>
-
-      <textarea ref={textAreaRef}></textarea>
+      <p> {state.count} / 100 🪙</p>
+      <button onClick={() => dispatch({ type: 'DECREMENT_COIN' })}>-</button>
+      <button onClick={() => dispatch({ type: 'INCREMENT_COIN' })}>+</button>
     </>
   );
-};
+}
