@@ -254,7 +254,7 @@ export const Reducer = () => {
           <div className='flex space-x-1 mb-1'>
             <button
               type='button'
-              className='p-2 bg-blue-700 rounded-md hover:bg-blue-800 focus:ring-2 focus:ring-blue-300 font-medium  dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 flex justify-center items-center'
+              className='p-2 bg-orange-500 rounded-md hover:bg-blue-800 focus:ring-2 focus:ring-blue-300 font-medium  dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 flex justify-center items-center'
               onClick={() => dispatch({ type: ActionKind.INCREASE_STAR })}
             >
               Increase +
