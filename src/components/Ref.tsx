@@ -84,12 +84,7 @@ export const Ref = () => {
             persistent mutable values and DOM elements.
           </p>
 
-          <SyntaxHighlighter
-            language='jsx'
-            style={oneDark}
-            wrapLines={true}
-            wrapLongLines={true}
-          >
+          <SyntaxHighlighter language='jsx' style={oneDark}>
             {useStateCodeString}
           </SyntaxHighlighter>
         </div>
@@ -107,12 +102,7 @@ export const Ref = () => {
             element).
           </p>
 
-          <SyntaxHighlighter
-            language='jsx'
-            style={oneDark}
-            wrapLines={true}
-            wrapLongLines={true}
-          >
+          <SyntaxHighlighter language='jsx' style={oneDark}>
             {useRefExampleCodeString}
           </SyntaxHighlighter>
         </div>

@@ -146,7 +146,7 @@ const WithMemo = () => {
   return (
     <div className={`p-2 ` + activeDivClass}>
       <p className={'font-normal mb-5 ' + activeInfoTextClass}>
-        <span role='img' aria-label='gem'>
+        <span role='img' aria-label='bulb'>
           💡
         </span>{' '}
         useMemo enabled - the theme toggle does not cause the recalculation of
@@ -220,7 +220,7 @@ const WithoutMemo = () => {
   return (
     <div className={`p-2 ` + activeDivClass}>
       <p className={'font-normal mb-5 ' + activeInfoTextClass}>
-        <span role='img' aria-label='gem'>
+        <span role='img' aria-label='bulb'>
           💡
         </span>
         useMemo disabled - if the num value is big enough, the theme toggling

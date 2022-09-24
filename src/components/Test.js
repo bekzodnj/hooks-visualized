@@ -1,41 +1,33 @@
-const Memo = () => {
-  // fib sequence num
-  const [num, setNumber] = useState(20);
-
-  // another state value to produce state change/rerender
-  const [isDarkMode, setIsDarkMode] = useState(true);
+const ParentComponent = () => {
+  const [num, setNumber] = useState(28);
 
   const fibonacci = (n) => {
     if (n <= 1) {
       return 1;
     }
-
     return fibonacci(n - 1) + fibonacci(n - 2);
   };
 
-  const fibValue = useMemo(() => {
-    return fibonacci(num);
-
-    // memozied value will not be recalculated
-    // unless num changes
-  }, [num]);
-
+  const fibonacciCallback = useCallback(fibonacci, [num]);
   return (
     <>
-      <div>
-        <span>{isDarkMode ? 'Dark' : 'Light'} mode on</span>
-        <button onClick={() => setIsDarkMode(!isDarkMode)}>
-          Toggle dark mode
-        </button>
-      </div>
+      <button onClick={() => setNumber(num + 1)}>
+        Increment fibonacci value
+      </button>
 
-      <div>
-        <h3>
-          The value of fibonacci({num}) = {fibValue}
-        </h3>
-
-        <button onClick={() => setNumber(num + 1)}>Increment value</button>
-      </div>
+      {/* // sending the number and memozied function to a child */}
+      <FibonacciComponent fibonacci={fibonacciCallback} num={num} />
     </>
   );
 };
+
+// React.memo skips rendering if props are the same
+const WithUseCallback = memo(({ fibonacci, num }) => {
+  return (
+    <>
+      <h3>
+        The value of fibonacci({num}) = {fibonacci(num)}
+      </h3>
+    </>
+  );
+});
