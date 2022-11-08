@@ -1,8 +1,6 @@
-import { useState, useEffect, createContext, useContext } from 'react';
+import { useState, createContext, useContext } from 'react';
 import { PrismAsyncLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import { CodeEditor, CodeComment } from './common/CodeEditor';
-import { fruits } from './common/StaticData';
 
 interface ILanguageContext {
   languageCode: string;

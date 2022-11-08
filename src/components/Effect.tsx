@@ -60,13 +60,13 @@ export const Effect = () => {
 
   const [highlightColor, setHighlightColor] = useState('');
 
-  useEffect(() => {
-    const timerID = setTimeout(() => setHighlightColor(''), 1000);
+  // useEffect(() => {
+  //   const timerID = setTimeout(() => setHighlightColor(''), 1000);
 
-    return () => {
-      clearInterval(timerID);
-    };
-  });
+  //   return () => {
+  //     clearInterval(timerID);
+  //   };
+  // });
 
   return (
     <div className='grid grid-cols-1 sm:grid-cols-2 '>
@@ -81,6 +81,10 @@ export const Effect = () => {
               onClick={() => {
                 setFruit(fruit);
                 setHighlightColor('bg-green-600 p-1 rounded-md transition');
+
+                setTimeout(() => {
+                  setHighlightColor('');
+                }, 800);
               }}
             >
               <span className='text-4xl'>{fruit.emoji}</span>

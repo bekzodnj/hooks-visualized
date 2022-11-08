@@ -1,4 +1,4 @@
-import { useState, useRef, useReducer } from 'react';
+import { useReducer } from 'react';
 import { CodeEditor, CodeComment } from './common/CodeEditor';
 
 import { PrismAsyncLight as SyntaxHighlighter } from 'react-syntax-highlighter';
